@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shortstop — Product brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  @page { size: Letter; margin: 0.42in 0.5in; }
+  :root { --bg:#F6F5F0; --card:#FFFFFF; --ink:#000; --ink2:#403F3A; --ink3:#55534D; --line:#D6D4CB; --lime:#C4E34A; --limeSoft:#EEF6CC; --red:#9E3520; --black:#121212; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Geist', 'Helvetica Neue', Arial, sans-serif; font-size: 8.2pt; line-height: 1.34; color: var(--ink); background: #fff; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  header.top { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:8px; }
+  .word { font-size: 15pt; font-weight:600; letter-spacing:-0.01em; }
+  .word span { display:block; height:3px; width:62px; background:var(--lime); border-radius:9px; margin-top:2px; }
+  .meta { text-align:right; font-size:7.4pt; color:var(--ink3); line-height:1.35; }
+  h1 { font-size: 20pt; font-weight:500; letter-spacing:-0.02em; line-height:1.02; }
+  .lede { font-size: 9.6pt; color: var(--ink2); max-width: 7.4in; margin-top:4px; }
+  .lede b { color: var(--ink); font-weight:600; }
+  h2 { font-size: 11pt; font-weight:600; letter-spacing:-0.005em; margin: 7px 0 4px; display:flex; align-items:center; gap:7px; }
+  h2 .n { display:inline-flex; width:17px; height:17px; border-radius:99px; background:var(--black); color:#fff; font-size:8pt; align-items:center; justify-content:center; font-weight:600; }
+  h3 { font-size: 9pt; font-weight:600; margin-bottom:3px; }
+  p + p { margin-top: 4px; }
+  .muted { color: var(--ink3); }
+  .strip { display:grid; grid-template-columns: repeat(4,1fr); gap:6px; margin:6px 0 0; }
+  .kpi { border:1px solid var(--line); border-radius:10px; padding:7px 9px; background:var(--card); }
+  .kpi .v { font-size:17pt; font-weight:500; letter-spacing:-0.01em; line-height:1.05; }
+  .kpi .l { font-size:7.3pt; color:var(--ink3); }
+  .kpi.loss .v { color: var(--red); }
+  .kpi.lime { background: var(--lime); border-color:#9DB53B; }
+  .kpi.lime .l { color:#1b1b1b; }
+  .cols2 { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+  .card { border:1px solid var(--line); border-radius:10px; padding:8px 10px; background:var(--card); }
+  .card.black { background:var(--black); color:#fff; border-color:var(--black); }
+  .card.black .muted { color:#C6C4BA; }
+  .card.soft { background:var(--bg); }
+  .tag { display:inline-block; font-size:6.8pt; font-weight:600; padding:1px 7px; border-radius:99px; background:var(--lime); color:#000; margin-bottom:4px; }
+  .tag.dark { background:#000; color:#fff; }
+  ol, ul { padding-left: 13px; }
+  li { margin: 1.5px 0; }
+  .steps { counter-reset: s; list-style:none; padding:0; display:grid; grid-template-columns: repeat(7,1fr); gap:5px; }
+  .steps li { counter-increment:s; border:1px solid var(--line); border-radius:8px; padding:5px 6px; background:var(--card); font-size:7.3pt; line-height:1.3; margin:0; }
+  .steps li::before { content: counter(s); display:block; font-weight:600; font-size:7pt; color:#000; background:var(--lime); width:13px; height:13px; border-radius:99px; text-align:center; line-height:13px; margin-bottom:3px; }
+  .steps li b { display:block; font-weight:600; }
+  .thumbs { display:grid; grid-template-columns: repeat(3,1fr); gap:6px; margin-top:6px; }
+  .thumbs figure { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--bg); }
+  .thumbs img { display:block; width:100%; height:0.98in; object-fit:cover; object-position:top left; }
+  .thumbs figcaption { font-size:6.8pt; color:var(--ink3); padding:3px 6px; border-top:1px solid var(--line); background:#fff; }
+  table { width:100%; border-collapse: collapse; font-size:7.6pt; }
+  th { text-align:left; font-weight:600; font-size:7pt; color:var(--ink3); padding:3px 5px; border-bottom:1px solid var(--line); }
+  td { padding:3.5px 5px; border-bottom:1px solid #E4E2DA; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .arch { display:grid; grid-template-columns: 1.05fr 14px 1.35fr 14px 0.9fr; align-items:stretch; gap:0; }
+  .arrow { display:flex; align-items:center; justify-content:center; font-size:10pt; color:var(--ink3); }
+  .arch .card { padding:7px 8px; }
+  .arch ul { padding-left: 11px; font-size:7.5pt; }
+  .gate { margin-top:6px; display:flex; align-items:center; flex-wrap:wrap; gap:4px; font-size:7.3pt; }
+  .gate span { border:1px solid var(--line); border-radius:99px; padding:1px 7px; background:#fff; }
+  .gate span.h { background:var(--lime); border-color:#9DB53B; font-weight:600; }
+  .gate i { font-style:normal; color:var(--ink3); }
+  .math { display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; }
+  .math .big { font-size:15pt; font-weight:500; letter-spacing:-0.01em; }
+  .foot { margin-top:5px; padding-top:5px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:7.1pt; color:var(--ink3); }
+  .foot b { color:#000; }
+  a { color:#000; }
+  .links { display:flex; gap:14px; align-items:center; background:var(--black); color:#fff; border-radius:10px; padding:5px 10px; margin-bottom:6px; font-size:7.8pt; white-space:nowrap; }
+  .links a { color:var(--lime); font-weight:600; text-decoration:none; }
+  .links .sep { color:#6B6962; }
+  .mini { display:grid; grid-template-columns: repeat(4,1fr); gap:6px; margin-top:6px; }
+  .mini .card { padding:6px 8px; font-size:7.5pt; }
+  .mini h3 { font-size:8.2pt; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE 1 · IMPLEMENTATION ======================= -->
+<section class="page">
+  <header class="top">
+    <div class="word">Shortstop<span></span></div>
+    <div class="meta">BBS × Ramp Hackathon 2026 · Product design track<br>Team Divib: Vibhor Agrawal, Divyansh Koolwal · UC Berkeley</div>
+  </header>
+  <div class="links"><span><b>Live demo:</b> <a href="https://shortstop-demo.vercel.app">shortstop-demo.vercel.app</a></span><span class="sep">·</span><span><b>Figma mockup:</b> <a href="https://www.figma.com/design/VrTJIo13NQVUV6yARJc196">figma.com/design/VrTJIo13NQVUV6yARJc196</a> · open “Start here”, then Present</span></div>
+
+  <h1>Stop the short-pay</h1>
+  <p class="lede">Ramp checks the money going out. <b>Shortstop checks the money coming in.</b> Guard stops retailer deductions before a shipment leaves. Recover wins back the rest after payment, with the proof already attached and a human approving every filing.</p>
+
+  <div class="strip">
+    <div class="kpi"><div class="v">$100,000</div><div class="l">Invoiced in October by Sunny Crunch Snacks (demo brand) to 5 retailers</div></div>
+    <div class="kpi"><div class="v">$91,400</div><div class="l">Cash that actually arrived</div></div>
+    <div class="kpi loss"><div class="v">$8,600</div><div class="l">Short-paid across 15 deduction lines, each just a code on a remittance</div></div>
+    <div class="kpi lime"><div class="v">$72k–$336k</div><div class="l">Recoverable per year for a $10M brand ($175k midpoint, math on page 2)</div></div>
+  </div>
+
+  <h2><span class="n">0</span>The problem and who has it</h2>
+  <div class="cols2">
+    <p>CPG brands selling to Walmart, Amazon, Target, Kroger and Costco routinely get paid less than they invoiced. Retailers deduct for shortages, late trucks, pricing, promotions and compliance, each in its own portal with its own codes and dispute window. Fighting one means finding a signed proof of delivery (POD), matching it to the PO and invoice and retyping it, so small ones get written off (97% of brands auto-write-off small deductions, per the Credit Research Foundation’s 2023 survey).</p>
+    <p><b>Primary user:</b> the AR or deduction analyst at a $10M–$100M brand juggling portal logins and a spreadsheet. <b>Approver:</b> the finance lead who signs off on large disputes. <b>Later:</b> the CFO, who wants one recovered-dollars number that matches the ERP.</p>
+  </div>
+
+  <h2><span class="n">1</span>What we built for this submission</h2>
+  <div class="cols2">
+    <div class="card black">
+      <span class="tag">Figma mockup · what is graded</span>
+      <h3>19 screens, one clickable prototype, 5 flows</h3>
+      <p class="muted">A <b style="color:#fff">Full walkthrough</b> plus four chapter flows (Guard, Recover and dispute, Approvals, Ledger and sync). Every screen carries a guide card: what you see, what Shortstop did, why it matters. Loading, empty, disconnected and not-enough-evidence states are designed too. Prototype variables carry the numbers: one click on <b style="color:#fff">File dispute with Amazon · $1,240</b> moves the queue from 15 to 14, At risk from $8,600 to $7,360 and $1,240 into “Filed, pending”.</p>
+    </div>
+    <div class="card">
+      <span class="tag dark">Live web demo · the same design, working</span>
+      <h3>Built from the Figma variables, deployed on Vercel</h3>
+      <p class="muted">Figma color, spacing, radius and type tokens are exported to CSS and drive a Next.js app. <b style="color:#000">One store</b> holds the 15 deductions, the Guard alert, dispute statuses and the ledger, so an action on one page updates every page. It has a guided tour and an explore mode, Undo on filing, and a clearly labelled <b style="color:#000">Simulate payout</b> control. Data is seeded; no live retailer integration was built for the hackathon.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">2</span>Product implementation</h2>
+  <div class="arch">
+    <div class="card">
+      <h3>Sources (read-only)</h3>
+      <ul>
+        <li><b>Retailer portals:</b> Amazon Vendor Central, Walmart Retail Link, Target Partners Online, Kroger, Costco. Credentials vaulted; RPA fallback where there is no API.</li>
+        <li><b>ERP:</b> NetSuite, QuickBooks Online, Xero, Sage Intacct through a unified accounting API (Apideck).</li>
+        <li><b>Carrier, 3PL and email</b> for PODs and remittance advice.</li>
+        <li><b>Ramp Developer API</b> to match recoveries to deposits.</li>
+      </ul>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card">
+      <h3>Shortstop core</h3>
+      <ol style="font-size:7.5pt; padding-left:12px">
+        <li><b>Normalise</b> into one shipment-and-payment record, deduplicated by PO + invoice + retailer.</li>
+        <li><b>Four-way match:</b> PO vs ASN vs POD vs invoice. Guard runs it before pickup; Recover runs it after payment.</li>
+        <li><b>Classify and rank</b> each short-paid line by deadline, then amount × win probability.</li>
+        <li><b>Package evidence:</b> POD OCR (Mindee) plus field extraction, with a source location for every value.</li>
+        <li><b>Draft</b> from retailer-format templates as a structured proposal with an idempotency key, so nothing is filed twice.</li>
+      </ol>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card">
+      <h3>Outputs</h3>
+      <ul>
+        <li>Guard alert before pickup</li>
+        <li>Ranked deduction queue</li>
+        <li>Filed dispute in the retailer’s format</li>
+        <li>Recovered-dollar ledger synced to the ERP and Ramp</li>
+        <li>Leakage by retailer, recovery rate, missed windows (target 0)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="gate"><b style="margin-right:3px">Human gate:</b><span>Proposed</span><i>→</i><span>Pending review</span><i>→</i><span class="h">Approved · Edited · Rejected</span><i>→</i><span>Filing</span><i>→</i><span>Filed</span><i>→</i><span>Paid or denied</span></div>
+  <div class="mini">
+    <div class="card soft"><h3>How the AI is kept in check</h3><p>The model drafts and cites; it has no permission to file. Every reason ends in a citation chip that opens the source line. With fewer than 3 of 3 proofs it says “not enough to dispute yet” and will not draft.</p></div>
+    <div class="card soft"><h3>How confidence is stated</h3><p>Never a bare score. “98% match on the POD signature · all 3 documents found” names its basis. Analysts correct it with <b>Teach Shortstop</b>, and each saved rule is listed in Settings and can be switched off.</p></div>
+    <div class="card soft"><h3>Permissions and security</h3><p>Read-only by default. Maker-checker above $1,500: the preparer can never approve. “File without a person” is locked off. Every step logs approver, time and document versions.</p></div>
+    <div class="card soft"><h3>Build vs buy, and the MVP line</h3><p>Buy plumbing (ERP connectors, OCR, money data). Build what wins disputes: match engine, ranking, retailer templates, approval gate. MVP: 5 retailers, 2 flows, a human on every filing.</p></div>
+  </div>
+</section>
+
+<!-- ======================= PAGE 2 · ROADMAP AND FUTURE PLANS ======================= -->
+<section class="page">
+  <h2 style="margin-top:0"><span class="n">3</span>Roadmap</h2>
+  <table>
+    <tr><th style="width:15%">Phase</th><th style="width:33%">Product</th><th style="width:30%">Go-to-market</th><th>Move on when</th></tr>
+    <tr><td><b>0 · Wedge</b><br><span class="muted">Now to 3 months</span></td><td>Guard + Recover for Amazon and Walmart first, then Target, Kroger and Costco. Human gate on everything. Real connectors replace the seeded data in the demo.</td><td>10 design partners, $10M–$100M CPG brands. Entry offer: a <b>free audit of 12 months of deductions</b>; the unclaimed money it finds is the pitch.</td><td>Partners file through Shortstop every week and recovery rate is measured per retailer.</td></tr>
+    <tr><td><b>1 · Repeatable</b><br><span class="muted">3 to 12 months</span></td><td>Top-5 retailer dispute templates as product. NetSuite and QuickBooks through a unified API. Review-in-a-batch for low-value items with all proofs attached. Taught rules shared across a team.</td><td>Publish anonymised recovery-rate benchmarks by retailer as content that finance leads forward internally.</td><td>New brands onboard without custom work and Guard catches show up in their monthly numbers.</td></tr>
+    <tr><td><b>2 · Scale</b><br><span class="muted">12 to 24 months</span></td><td>Retailer coverage from 5 to 20+ through a connector framework, not one-off scrapers. Promo validation, anomaly detection, CFO benchmarking.</td><td>Distributor and 3PL partnerships, ERP marketplace listings. Pricing to test: platform fee + % of recovered dollars.</td><td>Not before: 20 portals at once, filing without approval, or custom enterprise work.</td></tr>
+  </table>
+
+  <h2><span class="n">4</span>Future plans</h2>
+  <div class="cols2">
+    <div class="card black">
+      <span class="tag">The flywheel we are betting on</span>
+      <h3>Every dispute Recover wins teaches Guard a rule</h3>
+      <p class="muted">Amazon PO 4388 went out with a 480-vs-500 ASN miscount and came back as a $1,240 shortage claim. Recover wins it back, and Guard now checks every ASN for that mistake before pickup: Walmart PO 4471 is caught at 480 vs 500 and a $360 claim never exists. Over time the product moves spend from recovery to prevention, which is where most of the value sits.</p>
+    </div>
+    <div class="card">
+      <span class="tag dark">Where it goes next</span>
+      <ul>
+        <li><b>Inside Ramp:</b> recovered deposits reconcile automatically, and “money in” sits beside Bill Pay’s “money out” in one cash picture.</li>
+        <li><b>Promo and trade spend:</b> validate promotion deductions against the agreement before they are taken.</li>
+        <li><b>Benchmarks:</b> anonymised win rates by retailer and deduction type, so a brand knows which fights are worth having.</li>
+        <li><b>Earned autonomy:</b> auto-file only for a rule a team has approved many times, under a threshold they set, always with Undo and an audit trail.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cols2" style="margin-top:8px">
+    <div class="card soft">
+      <h3>What we would test with design partners first</h3>
+      <ul>
+        <li><b>Recovery rate:</b> is 60–80% of disputable dollars real, per retailer? This is our least certain number.</li>
+        <li><b>Evidence coverage:</b> how often are all 3 proofs findable without a person chasing a carrier?</li>
+        <li><b>Trust in the read:</b> do analysts open the citation, and how often do they correct the AI or teach a rule?</li>
+        <li><b>Guard timing:</b> does an alert at ASN creation leave enough time before pickup to fix the paperwork?</li>
+        <li><b>Dispute windows:</b> they differ by retailer and change; the demo shows “Set by retailer · verify” until confirmed.</li>
+      </ul>
+    </div>
+    <div class="card soft">
+      <h3>When things go wrong</h3>
+      <ul>
+        <li><b>Missing POD:</b> the item stays in the queue as “not enough evidence” while Shortstop requests it from the carrier.</li>
+        <li><b>Portal disconnects:</b> the source is flagged, affected deductions are marked possibly out of date, one click reconnects.</li>
+        <li><b>Analyst rejects:</b> a reason code feeds the next ranking. <b>Retailer denies:</b> the outcome is logged and feeds win rates.</li>
+        <li><b>Filed by mistake:</b> Undo is offered at the moment of filing, and the audit trail records both actions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cols2" style="margin-top:8px">
+    <div class="card">
+      <h3>Benefit, quoted as a range</h3>
+      <div class="math"><span class="big">$72k – $336k</span><span>per year for a $10M brand · <b>$175k</b> at the midpoint</span></div>
+      <p class="muted" style="margin-top:2px">$10M revenue × 3–7% deducted (Finortal, 2025) × 40–60% disputable (industry estimate) × 60–80% recovered (our assumption, to validate with design partners). Plus time (hours of assembly become a short review), risk (no missed windows) and one cash number that reconciles to the ERP and Ramp.</p>
+    </div>
+    <div class="card">
+      <h3>Success metrics</h3>
+      <p>Dollars recovered per brand · recovery rate on disputable deductions · missed dispute windows = 0 · time to file · Guard catches per month (deductions that never happened). <b>North star: net recovered dollars per analyst-hour.</b></p>
+      <h3 style="margin-top:5px">Risks, named up front</h3>
+      <p class="muted">Retailer portals have no public APIs, so connectors are brittle. OCR makes mistakes, which is why the human gate and source links exist. Recovery rates are assumptions until design partners prove them. <b style="color:#000">Market proof:</b> a published case study reports Miss Jones Baking Co. winning a single $22,943.83 Walmart shortage dispute and finding $120,000 in unclaimed invalid deductions.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Live demo:</b> shortstop-demo.vercel.app · <b>Figma:</b> figma.com/design/VrTJIo13NQVUV6yARJc196</span><span>Demo data: Sunny Crunch Snacks is a fictional brand. No live integrations were built for the hackathon.</span></div>
+</section>
+</body>
+</html>

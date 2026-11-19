@@ -1,0 +1,119 @@
+/* Generated from the Figma file VrTJIo13NQVUV6yARJc196 ("Shortstop — Hackathon Build").
+   Collections: Color System (Light mode), spacing, radius. Do not hand-edit values;
+   change them in Figma and re-export. */
+:root {
+  /* Surface */
+  --surface-primary: #f6f5f0;
+  --surface-primary-hover: #eeede6;
+  --surface-primary-selected: #e4e2da;
+  --surface-primary-subtle: #eeede6;
+  --surface-secondary: #ffffff;
+  --surface-secondary-hover: #f6f5f0;
+  --surface-secondary-subtle: #eeede6;
+  --surface-inverted: #121212;
+  --surface-accent: #c4e34a;
+  --surface-accent-subtle: #f0f8d2;
+  --surface-error-subtle: #f9e3de;
+  --surface-success-subtle: #dff0e6;
+  --surface-warning-subtle: #fbf2dc;
+
+  /* Border */
+  --border-primary: #d6d4cb;
+  --border-secondary: #e4e2da;
+  --border-tertiary: #121212;
+  --border-action-primary: #7a8e2e;
+  --border-action-secondary: #000000;
+  --border-error: #d9482b;
+  --border-success: #2f9e5b;
+  --border-warning: #ba8915;
+
+  /* Action */
+  --action-primary: #c4e34a;
+  --action-primary-hover: #cfe86c;
+  --action-primary-click: #9fb83c;
+  --action-primary-disabled: #ebf5c1;
+  --action-secondary: #121212;
+  --action-secondary-hover: #313131;
+  --action-secondary-click: #403f3a;
+  --action-secondary-disabled: #c6c4ba;
+  --action-tertiary: #ffffff;
+  --action-tertiary-hover: #eeede6;
+  --action-tertiary-click: #e4e2da;
+  --action-tertiary-disabled: #f6f5f0;
+  --action-error: #b03a23;
+  --action-error-hover: #872d1b;
+  --action-error-click: #5f1f13;
+  --action-error-disabled: #f2c0b6;
+  --action-warning: #e5a91a;
+  --action-warning-hover: #ba8915;
+  --action-warning-click: #8f6910;
+  --action-warning-disabled: #f6e2b1;
+
+  /* Text */
+  --text-primary: #000000;
+  --text-secondary: #403f3a;
+  --text-tertiary: #55534d;
+  --text-primary-disabled: #918f86;
+  --text-inverted: #ffffff;
+  --text-on-action-primary: #000000;
+  --text-error: #872d1b;
+  --text-success: #1d6339;
+  --text-warning: #4e3a09;
+
+  /* Icon */
+  --icon-default: #000000;
+  --icon-subtle: #6b6962;
+  --icon-inverted: #ffffff;
+  --icon-error: #b03a23;
+  --icon-success: #26804a;
+  --icon-warning: #8f6910;
+
+  /* Overlay */
+  --overlay-md: #403f3a66;
+  --overlay-lg: #403f3aa3;
+
+  /* On the dark (inverted) Guard / AI cards: Dark-mode values of the same tokens */
+  --inv-text-secondary: #d6d4cb;
+  --inv-text-tertiary: #918f86;
+  --inv-border: #313131;
+  --inv-surface-raised: #1f1f1f;
+
+  /* spacing/* */
+  --sp-0: 0px;
+  --sp-25: 2px;
+  --sp-50: 4px;
+  --sp-75: 8px;
+  --sp-100: 12px;
+  --sp-200: 16px;
+  --sp-300: 24px;
+  --sp-400: 32px;
+  --sp-500: 40px;
+  --sp-600: 48px;
+  --sp-700: 64px;
+  --sp-800: 80px;
+  --sp-900: 96px;
+
+  /* radius/* */
+  --r-2: 2px;
+  --r-4: 4px;
+  --r-6: 6px;
+  --r-8: 8px;
+  --r-12: 12px;
+  --r-16: 16px;
+  --r-24: 24px;
+  --r-full: 9999px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-overlay: 300ms;
+  --dur-layout: 500ms;
+}
+
+/* Text styles (Figma name → size/line-height, weight, family)
+   Heading 1 60/60 400 · Heading 2 48/48 400 · Heading 3 36/40 400 · Heading 4 30/36 400
+   Heading 5 24/32 400 · Heading 6 20/28 400 · Heading 7 36/40 500 (big numerals) · Heading 8 30/36 500
+   Title 1 20/28 500 · Title 2 18/28 500 · Title 3 16/24 500 · Title 4 14/20 500 · Title 5 12/16 500
+   Body 1 16/24 600 · Body 2 16/24 500 · Body 3 16/24 400 · Body 4 14/20 600 · Body 5 14/20 500 · Body 6 14/20 400
+   Body 7 14/20 500 Geist Mono (money, quantities) · Caption 6 12/16 500 Geist Mono
+   Button-lg 18/28 600 · Button-md 16/24 600 · Button-sm 14/20 600 · Button-Xsm 12/16 600
+   Caption 1 14/20 500 · Caption 2 14/20 400 · Caption 3 12/16 600 · Caption 4 12/16 500 · Caption 5 12/16 400 */

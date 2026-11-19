@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* Tokens come from ./tokens.css (Figma export). This maps them into Tailwind v4. */
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+
+  --spacing: var(--sp-50);
+
+  --color-*: initial;
+  --color-canvas: var(--surface-primary);
+  --color-canvas-hover: var(--surface-primary-hover);
+  --color-canvas-selected: var(--surface-primary-selected);
+  --color-card: var(--surface-secondary);
+  --color-card-hover: var(--surface-secondary-hover);
+  --color-subtle: var(--surface-secondary-subtle);
+  --color-ink: var(--surface-inverted);
+  --color-accent: var(--surface-accent);
+  --color-accent-subtle: var(--surface-accent-subtle);
+  --color-error-subtle: var(--surface-error-subtle);
+  --color-success-subtle: var(--surface-success-subtle);
+  --color-warning-subtle: var(--surface-warning-subtle);
+
+  --color-line: var(--border-secondary);
+  --color-line-strong: var(--border-primary);
+  --color-line-ink: var(--border-tertiary);
+  --color-line-accent: var(--border-action-primary);
+  --color-line-error: var(--border-error);
+  --color-line-success: var(--border-success);
+  --color-line-warning: var(--border-warning);
+
+  --color-lime: var(--action-primary);
+  --color-lime-hover: var(--action-primary-hover);
+  --color-lime-click: var(--action-primary-click);
+  --color-lime-disabled: var(--action-primary-disabled);
+  --color-act2: var(--action-secondary);
+  --color-act2-hover: var(--action-secondary-hover);
+  --color-act2-click: var(--action-secondary-click);
+  --color-act2-disabled: var(--action-secondary-disabled);
+  --color-act3: var(--action-tertiary);
+  --color-act3-hover: var(--action-tertiary-hover);
+  --color-act3-click: var(--action-tertiary-click);
+  --color-danger: var(--action-error);
+  --color-danger-hover: var(--action-error-hover);
+  --color-warn: var(--action-warning);
+
+  --color-t1: var(--text-primary);
+  --color-t2: var(--text-secondary);
+  --color-t3: var(--text-tertiary);
+  --color-tdis: var(--text-primary-disabled);
+  --color-tinv: var(--text-inverted);
+  --color-terror: var(--text-error);
+  --color-tsuccess: var(--text-success);
+  --color-twarning: var(--text-warning);
+
+  --color-icon: var(--icon-default);
+  --color-icon-subtle: var(--icon-subtle);
+  --color-icon-error: var(--icon-error);
+  --color-icon-success: var(--icon-success);
+  --color-icon-warning: var(--icon-warning);
+
+  --color-overlay: var(--overlay-md);
+  --color-overlay-lg: var(--overlay-lg);
+
+  --color-inv2: var(--inv-text-secondary);
+  --color-inv3: var(--inv-text-tertiary);
+  --color-inv-line: var(--inv-border);
+  --color-inv-raised: var(--inv-surface-raised);
+
+  --radius-*: initial;
+  --radius-xs: var(--r-2);
+  --radius-sm: var(--r-4);
+  --radius-md: var(--r-6);
+  --radius-lg: var(--r-8);
+  --radius-xl: var(--r-12);
+  --radius-2xl: var(--r-16);
+  --radius-3xl: var(--r-24);
+  --radius-full: var(--r-full);
+
+  --ease-expo: var(--ease-out-expo);
+
+  --shadow-*: initial;
+  --shadow-pop: 0 var(--sp-75) var(--sp-300) color-mix(in srgb, var(--surface-inverted) 14%, transparent);
+  --shadow-paper: 0 var(--sp-25) var(--sp-100) color-mix(in srgb, var(--surface-inverted) 8%, transparent);
+}
+
+
+body {
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 2px solid var(--border-action-primary); outline-offset: 2px; }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* Guided tour: pulsing lime ring on the next thing to click */
+@keyframes tour-pulse {
+  0% { box-shadow: 0 0 0 var(--sp-25) var(--action-primary), 0 0 0 var(--sp-50) color-mix(in srgb, var(--action-primary) 60%, transparent); }
+  70% { box-shadow: 0 0 0 var(--sp-25) var(--action-primary), 0 0 0 var(--sp-200) color-mix(in srgb, var(--action-primary) 0%, transparent); }
+  100% { box-shadow: 0 0 0 var(--sp-25) var(--action-primary), 0 0 0 var(--sp-200) color-mix(in srgb, var(--action-primary) 0%, transparent); }
+}
+.tour-ring {
+  animation: tour-pulse 1.6s var(--ease-out-expo) infinite;
+  outline: 2px solid var(--border-action-primary);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes skeleton {
+  0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; }
+}
+.skeleton { background: var(--surface-primary-selected); border-radius: var(--r-6); animation: skeleton 1.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-ring, .skeleton { animation: none; }
+  .tour-ring { box-shadow: 0 0 0 var(--sp-50) var(--action-primary); }
+  * { scroll-behavior: auto !important; }
+}
